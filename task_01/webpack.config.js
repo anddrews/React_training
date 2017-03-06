@@ -1,6 +1,7 @@
 var debug = process.env.NODE_ENV !== "production";
 var webpack = require('webpack');
 var path = require('path');
+var CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
   context: path.join(__dirname, "src"),
@@ -9,23 +10,21 @@ module.exports = {
   module: {
     loaders: [
       {
-        test: /\.jsx?$/,
+        test: /\.js?$/,
         exclude: /(node_modules|bower_components)/,
         loader: 'babel-loader',
         query: {
-          presets: ['react', 'es2015', 'stage-0'],
-          plugins: ['react-html-attrs', 'transform-decorators-legacy', 'transform-class-properties'],
+          presets: ['es2015', 'stage-0'],
+          plugins: ['transform-decorators-legacy', 'transform-class-properties'],
         }
       }
     ]
   },
   output: {
-    path: __dirname + "/distr/",
+    path: __dirname + "/dist/",
     filename: "common.min.js"
   },
-  plugins: debug ? [] : [
-    new webpack.optimize.DedupePlugin(),
-    new webpack.optimize.OccurenceOrderPlugin(),
-    new webpack.optimize.UglifyJsPlugin({ mangle: false, sourcemap: false }),
+  plugins: [
+		new CopyWebpackPlugin([{ from: 'html'}])
   ],
 };
