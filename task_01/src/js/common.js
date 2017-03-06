@@ -1,11 +1,11 @@
 
 import ConverterFactory from './ConverterFactory';
 
-const convertions = {
+const conversions = {
  from: 'sec',
  to: 'min'
 };
 
-let converter = new ConverterFactory().createConverter(convertions);
+let converter = new ConverterFactory().createConverter(conversions);
 let value = 60;
-console.log(`result convertion ${value}  from ${convertions.from} to ${convertions.to} is ${converter.convert(value)}`);
+console.log(`result conversion ${value}  from ${conversions.from} to ${conversions.to} is ${converter.convert(value)}`);
