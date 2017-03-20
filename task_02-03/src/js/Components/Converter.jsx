@@ -1,14 +1,16 @@
 import React, { Component } from 'react';
 import Select from './Select';
+import ConverterFactory  from '../Library/converterFactory';
 
 export default class Converter extends Component {
-	constructor({converterType}) {
-		super()
+	constructor({type}) {
+		super();
 		this.state = {
-			from: '',
-			to: '',
+			from: null,
+			to: null,
 			value: null,
-			converterType: converterType};
+			converterType: type
+		};
 		// this.handleSomeIdChange = this.handleSomeIdChange.bind(this);
 	}
 
@@ -17,10 +19,18 @@ export default class Converter extends Component {
 	// }
 
 	render() {
+		let converter = new ConverterFactory().createConverter({from: 'mm', to: 'm'});
+		converter.get
+
 		return (
+
 				<div>
-					<h2>{this.state.converterType}</h2>
+					<h2>{ converter.convert(10)}</h2>
 				</div>
 		);
 	}
 }
+
+Converter.propTypes = {
+	type: React.PropTypes.string
+};

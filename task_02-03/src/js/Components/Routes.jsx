@@ -10,7 +10,7 @@ export default class Routes extends Component {
 	render() {
 		return (
 				<Router history={browserHistory}>
-					<Route path="/" component={Application}>
+					<Route path="/" component={ Application }>
 						<Route path="currency" component={ Converter } />
 						<Route path="length" component={ Converter } />
 						<Route path="time" component={ Converter } />

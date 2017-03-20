@@ -13,7 +13,7 @@ export default class Application extends Component {
 						<div className="header">
 							<h1>Application Root Component { this.props.children.props.route.path }</h1>
 							<Link to={'/'} className = { styles.mainlink }>Home</Link>
-							<Converter converterType={this.props.children.props.route.path} />
+							<Converter type={this.props.children.props.route.path} />
 						</div>
 					)
 					: (
