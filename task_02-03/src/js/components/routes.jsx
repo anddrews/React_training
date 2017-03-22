@@ -5,7 +5,6 @@ import { Router, Route, browserHistory } from 'react-router';
 import Application from './application/application';
 import NotFoundComponent from './notFoundComponent';
 import Converter from './converter/converter';
-import Modal from './modal/modalComponent';
 
 export default class Routes extends Component {
 	render() {
