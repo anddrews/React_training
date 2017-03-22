@@ -1,9 +1,9 @@
 
-import ConverterFactory from './ConverterFactory';
+import ConverterFactory, { measures } from './ConverterFactory';
 
 const conversions = {
- from: 'sec',
- to: 'min'
+ from: 'mm',
+ to: 'm'
 };
 
 let converter = new ConverterFactory().createConverter(conversions);

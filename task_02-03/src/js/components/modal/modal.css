@@ -1,0 +1,25 @@
+.modalWrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0, 0.2);
+  display: flex;
+}
+.modalBody {
+  width: 350px;
+  height: 150px;
+  margin: auto;
+  background-color: #fff;
+  border: 1.5px solid olivedrab;
+  padding: 15px;
+}
+
+.row {
+  margin: 5px 0;
+}
+.caption {
+  min-width: 70px;
+  display: inline-block;
+}

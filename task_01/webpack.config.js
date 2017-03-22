@@ -5,7 +5,8 @@ var CopyWebpackPlugin = require('copy-webpack-plugin');
 module.exports = {
   context: path.join(__dirname, "src"),
   devtool: "inline-sourcemap",
-  entry: "./js/common.js",
+  entry: "./js/ConverterFactory.js",
+  watch: true,
   module: {
     loaders: [
       {

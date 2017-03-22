@@ -76,3 +76,14 @@ img:after {
 a {
 	text-decoration: none;
 }
+
+.header {
+	height: 100%;
+}
+
+
+.content-wrapper {
+	width: 800px;
+	margin: 0 auto;
+}
+

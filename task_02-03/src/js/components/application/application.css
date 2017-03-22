@@ -1,0 +1,18 @@
+ .mainlink {
+	 padding: 10px 15px;
+	 cursor: pointer;
+	 color: #30c0ff;
+ }
+
+ .converter-bloc {
+	 display: flex;
+ }
+	.header {
+		margin: 20px 0 10px 0;
+	}
+ .header h1 {
+	 color: #7745ff;
+	 text-align: center;
+	 font-size: 40px;
+	 margin: 10px 0;
+ }

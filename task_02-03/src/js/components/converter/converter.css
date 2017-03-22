@@ -1,0 +1,11 @@
+.converter-bloc {
+  width: 500px;
+  height: 200px;
+  margin: auto;
+  border: 1.5px solid grey;
+}
+
+.converter-bloc .row {
+  text-align: center;
+  margin: 10px 0;
+}

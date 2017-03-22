@@ -1,4 +1,4 @@
 import ReactDOM from 'react-dom';
-import Routes from './Components/Routes';
+import Routes from './components/routes';
 
 ReactDOM.render(<Routes/>, document.querySelector('#root'));

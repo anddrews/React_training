@@ -10,7 +10,7 @@ export default class Converter {
       if (this.ratio == 1) {
         return value;
       } else {
-        return this.ratio * value;
+        return (this.ratio * value).toFixed(2);
       }
     };
 
