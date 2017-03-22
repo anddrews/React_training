@@ -1,7 +1,7 @@
-import styles from './application.css';
+import styles from './Application.css';
 import React, { Component } from 'react';
 import { Link } from 'react-router';
-import Converter from '../converter/converter';
+import Converter from '../Converter';
 
 
 export default class Application extends Component {
@@ -10,22 +10,17 @@ export default class Application extends Component {
 			<div>
 				{this.props.children
 					? (
-						<div className="content-wrapper">
-							<div className={ styles.header }>
-								<Link to={'/'} className = { styles.mainlink }>Home</Link>
-								<h1>{ this.props.params.type } converter is working now</h1>
-							</div>
-							<Converter className = { styles['converter-bloc'] } converterType={ this.props.params.type } />
+						<div className="header">
+							<h1>Application Root Component { this.props.children.props.route.path }</h1>
+							<Link to={'/'} className = { styles.mainlink }>Home</Link>
+							<Converter type={this.props.children.props.route.path} />
 						</div>
 					)
 					: (
-						<div className="content-wrapper">
-							<div className={ styles.header }>
-								<h1>Awesome converter</h1>
-								<Link to={'/currency'} className={ styles.mainlink }>Currencies</Link>
-								<Link to={'/length'} className={ styles.mainlink }>Length</Link>
-								<Link to={'/time'} className={ styles.mainlink }>Time</Link>
-							</div>
+						<div className="header">
+							<Link to={'/currency'} className={ styles.mainlink }>Currencies</Link>
+							<Link to={'/length'} className={ styles.mainlink }>Length</Link>
+							<Link to={'/time'} className={ styles.mainlink }>Time</Link>
 						</div>
 					)
 				}

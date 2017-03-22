@@ -1,8 +1,8 @@
 {
   "name": "task_02-03",
   "version": "0.0.1",
-  "description": "converter app",
-  "main": "index.jsx",
+  "description": "converter-app",
+  "main": "webpack.config.js",
   "scripts": {
     "dev": "webpack-dev-server --content-base dist --inline --hot",
     "test": "echo \"Error: no test specified\" && exit 1"
