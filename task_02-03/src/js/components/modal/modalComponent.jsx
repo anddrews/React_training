@@ -4,7 +4,8 @@ import styles from './modal.css';
 class Modal extends Component {
     
     handleAddCurrency (evt) {
-        console.log(evt.target.value);
+        this.props.closeModal();
+        console.log('added');
     }
     
     render() {
@@ -27,8 +28,8 @@ class Modal extends Component {
                         <input type="text" name="ratio"/>
                     </div>
                     <div className={ styles.row }>
-                        <button onClick={ this.handleAddCurrency }>Add</button>
-                        <button onClick={ this.handleAddCurrency }>Cancel</button>
+                        <button onClick={ () => {console.log('fff'); this.props.closeModal()} }>Add</button>
+                        <button onClick={ this.props.closeModal }>Cancel</button>
                     </div>
                 </div>
             </div>

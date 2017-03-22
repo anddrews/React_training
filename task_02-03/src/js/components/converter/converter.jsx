@@ -60,8 +60,8 @@ export default class Converter extends Component {
                 <div className={ styles.row }>
                     <label>Result:{ this.state.result }</label>
                 </div>
-                <button onClick={()=> this.setState({isOpenModal: true})}>Add currency</button>
-                <Modal isOpen={ this.state.isOpenModal }/>
+                <button onClick={()=> this.toggleModal()}>Add currency</button>
+                <Modal isOpen={ this.state.isOpenModal } closeModal= { this.toggleModal.bind(this) } />
             </div>
         );
     }
