@@ -14,15 +14,22 @@ export default class Converter extends Component {
             to: '',
             value: null,
             converterType: converterType,
-            measureItems: new ConverterFactory().getMeasures(converterType),
             isOpenModal: false
         };
     };
-    
+    componentWillMount () {
+        let currentConverter = new ConverterFactory();
+            this.setState({
+                measureItems: currentConverter.getMeasures(this.state.converterType),
+                converter: currentConverter
+						})
+
+    }
+
     createConverter() {
         if (this.state.from && this.state.to) {
             let {from, to} = this.state;
-            this.setState({converter: new ConverterFactory().createConverter({'from': from, 'to': to})});
+            this.setState({converter: this.state.converter.createConverter({'from': from, 'to': to})});
         }
     }
     
@@ -41,8 +48,12 @@ export default class Converter extends Component {
         }
     }
     
-    toggleModal() {
-        this.setState({isOpenModal: !this.state.isOpenModal});
+    closeModal(from, to, ratio) {
+				this.state.converter.setCustomRatio(from, to, ratio);
+        this.setState({
+					isOpenModal: false,
+					measureItems: this.state.converter.getMeasures(this.state.converterType),
+				});
     }
     
     render() {
@@ -60,8 +71,14 @@ export default class Converter extends Component {
                 <div className={ styles.row }>
                     <label>Result:{ this.state.result }</label>
                 </div>
-                <button onClick={()=> this.toggleModal()}>Add currency</button>
-                <Modal isOpen={ this.state.isOpenModal } closeModal= { this.toggleModal.bind(this) } />
+              {this.state.converterType === 'currency' ?
+                <button onClick={()=> this.setState({isOpenModal: true})}>Add currency</button>
+                  : null
+              }
+                <Modal
+                  isOpen={ this.state.isOpenModal }
+                  closeModal={ this.closeModal.bind(this) }
+                />
             </div>
         );
     }

@@ -18,5 +18,6 @@ export default class ConverterCurrency extends Converter {
     setCustomRatio (from, to , ratio) {
         this.ratios[from] = 1;
         this.ratios[to] = ratio;
+        console.log(this.ratios);
     }
 }

@@ -1,6 +1,6 @@
 const path = require('path');
 var CopyWebpackPlugin = require('copy-webpack-plugin');
-
+var ExtractTextPlugin = require("extract-text-webpack-plugin");
 module.exports = {
 	entry: './src/js/index.jsx',
 	output: {
@@ -34,13 +34,11 @@ module.exports = {
 			}
 		}, {
 			test: /\.css$/,
-			loaders: [
-				'style?sourceMap',
-				'css?modules&importLoaders=1&localIdentName=[path]___[name]__[local]___[hash:base64:5]'
-			]
+			loader: ExtractTextPlugin.extract('style?sourceMap', 'css?modules&importLoaders=1&localIdentName=[path]___[name]__[local]___[hash:base64:5]')
 		}]
 	},
 	plugins: [
-		new CopyWebpackPlugin([{ from: 'src/html'}])
+		new CopyWebpackPlugin([{ from: 'src/html'}]),
+		new ExtractTextPlugin("styles.css")
 	],
 };
